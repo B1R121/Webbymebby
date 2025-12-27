@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact RMC | Marine Engineering Consultancy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0 0 0 / 10%);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 3.6rem;
+      font-weight: bold;
+      color: #004080;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    nav a:hover {
+      color: #0073e6;
+    }
+
+    .email-contact {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .email-contact i {
+      color: #0073e6;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    main h1 {
+      font-size: 2rem;
+      color: #004080;
+      margin-bottom: 1rem;
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .contact-info {
+      background: #ffffff;
+      padding: 1.5rem 2rem;
+      border-left: 5px solid #004080;
+      box-shadow: 0 2px 6px rgba(0 0 0 / 5%);
+    }
+
+    .contact-info h2 {
+      margin-top: 0;
+      color: #004080;
+    }
+
+    .contact-info p {
+      line-height: 1.6;
+      color: #333;
+    }
+
+    form {
+      background: #ffffff;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 2px 6px rgba(0 0 0 / 5%);
+    }
+
+    form label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 0.95rem;
+    }
+
+    form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    form button {
+      margin-top: 1.5rem;
+      padding: 0.7rem 1.5rem;
+      background-color: #004080;
+      color: white;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #0073e6;
+    }
+
+    footer {
+      margin-top: auto;
+      background-color: #004080;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">RMC</div>
+
+      <nav>
+        <a href="index.html"><i class="fas fa-house"></i>Home</a>
+        <a href="services.html"><i class="fas fa-screwdriver-wrench"></i>Services</a>
+        <a href="contact.html"><i class="fas fa-envelope"></i>Contact</a>
+        <a href="knowledge.html"><i class="fas fa-book-open"></i>Knowledge</a>
+      </nav>
+
+      <div class="email-contact">
+        <i class="fas fa-envelope"></i>
+        <span>rmc@gmail.com</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1>Contact & Enquiries</h1>
+
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <h2>Professional Enquiries</h2>
+        <p>
+          RMC provides independent marine engineering and assurance services to vessel owners,
+          operators, and offshore contractors.
+        </p>
+        <p>
+          For enquiries related to DP FMEA/FMECA, DP trials, class compliance, or technical risk studies,
+          please use the enquiry form or contact us directly.
+        </p>
+        <p>
+          <strong>Email:</strong><br />
+          rmc@gmail.com
+        </p>
+      </div>
+
+      <form action="#" method="post">
+        <h2>Enquiry Form</h2>
+
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" />
+
+        <label for="message">Enquiry Details</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Submit Enquiry</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 RMC Marine Engineering Consultancy. All rights reserved. | RMC™
+  </footer>
+</body>
+</html>

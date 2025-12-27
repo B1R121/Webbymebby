@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RMC Knowledge | Marine Engineering Consultancy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 3.6rem;
+      font-weight: bold;
+      color: #004080;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    nav a:hover {
+      color: #0073e6;
+    }
+
+    .email-contact {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .email-contact i {
+      color: #0073e6;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    main h1 {
+      font-size: 2rem;
+      color: #004080;
+      margin-bottom: 1rem;
+    }
+
+    .knowledge-section {
+      background: #ffffff;
+      padding: 1.5rem 2rem;
+      border-left: 5px solid #004080;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .knowledge-section h2 {
+      margin-top: 0;
+      color: #004080;
+    }
+
+    .knowledge-section p {
+      line-height: 1.6;
+      color: #333;
+    }
+
+    footer {
+      margin-top: auto;
+      background-color: #004080;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">RMC</div>
+
+      <nav>
+        <a href="index.html"><i class="fas fa-house"></i>Home</a>
+        <a href="index.html#services"><i class="fas fa-screwdriver-wrench"></i>Services</a>
+        <a href="index.html#projects"><i class="fas fa-folder-open"></i>Projects</a>
+        <a href="index.html#contact"><i class="fas fa-envelope"></i>Contact</a>
+        <a href="knowledge.html"><i class="fas fa-book-open"></i>Knowledge</a>
+      </nav>
+
+      <div class="email-contact">
+        <i class="fas fa-envelope"></i>
+        <span>rmc@gmail.com</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1>Knowledge & Technical Guidance</h1>
+
+    <div class="knowledge-section">
+      <h2>Dynamic Positioning FMEA</h2>
+      <p>
+        Dynamic Positioning (DP) FMEAs assess the robustness and fault tolerance of vessel DP systems. They are a critical
+        requirement for DP2 and DP3 vessels operating in offshore and marine environments.
+      </p>
+    </div>
+
+    <div class="knowledge-section">
+      <h2>DNV Recommended Practice RPD-102</h2>
+      <p>
+        DNV-RP-D102 provides the industry standard methodology for conducting DP FMEAs. It defines documentation,
+        testing philosophy, and acceptance criteria to ensure vessels meet class and client requirements.
+        <br /><br />
+        <a href="https://www.dnv.com/services/dp-technical-guidance-and-rp-rp-d102-167649" target="_blank" style="color:#0073e6;">View official DNV RPD-102 guidance</a>
+      </p>
+    </div>
+
+    <div class="knowledge-section">
+      <h2>Marine & Offshore Risk Analysis</h2>
+      <p>
+        In addition to DP FMEA/FMECA, RMC supports HAZID, HAZOP, and technical risk assessments to improve safety,
+        availability, and regulatory compliance throughout the vessel lifecycle.
+      </p>
+    </div>
+      <div class="knowledge-section">
+      <h2>Dynamic Positioning Class Matrix</h2>
+      <p>The table below summarises the key differences between DP Classes in accordance with IMO / class guidance.</p>
+      <table style="width:100%; border-collapse: collapse; margin-top:1rem;">
+        <thead>
+          <tr style="background:#004080; color:white;">
+            <th style="padding:0.75rem; border:1px solid #ccc;">DP Class</th>
+            <th style="padding:0.75rem; border:1px solid #ccc;">Redundancy</th>
+            <th style="padding:0.75rem; border:1px solid #ccc;">Single Failure Tolerance</th>
+            <th style="padding:0.75rem; border:1px solid #ccc;">Typical Operations</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:0.75rem; border:1px solid #ccc;">DP Class 1</td>
+            <td style="padding:0.75rem; border:1px solid #ccc;">No redundancy</td>
+            <td style="padding:0.75rem; border:1px solid #ccc;">Loss of position may occur after single fault</td>
+            <td style="padding:0.75rem; border:1px solid #ccc;">Survey, standby, non-critical operations</td>
+          </tr>
+          <tr style="background:#f2f6fa;">
+            <td style="padding:0.75rem; border:1px solid #ccc;">DP Class 2</td>
+            <td style="padding:0.75rem; border:1px solid #ccc;">Redundant systems</td>
+            <td style="padding:0.75rem; border:1px solid #ccc;">No loss of position after single fault</td>
+            <td style="padding:0.75rem; border:1px solid #ccc;">Diving, ROV, construction support</td>
+          </tr>
+          <tr>
+            <td style="padding:0.75rem; border:1px solid #ccc;">DP Class 3</td>
+            <td style="padding:0.75rem; border:1px solid #ccc;">Physically separated redundancy</td>
+            <td style="padding:0.75rem; border:1px solid #ccc;">No loss of position after fire or flooding</td>
+            <td style="padding:0.75rem; border:1px solid #ccc;">Drilling, accommodation, critical offshore work</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 RMC Marine Engineering Consultancy. All rights reserved. | RMC™
+  </footer>
+</body>
+</html>
