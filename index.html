@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RMC Marine Engineering Consultancy</title>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
     body {
       margin: 0;
@@ -14,6 +16,8 @@
       flex-direction: column;
       min-height: 100vh;
     }
+
+    /* ================= HEADER ================= */
 
     header {
       background-color: #ffffff;
@@ -32,10 +36,11 @@
       margin: 0 auto;
     }
 
-    .logo {
-      font-size: 3.6rem;
-      font-weight: bold;
-      color: #004080;
+    /* SVG LOGO */
+    .logo-img {
+      height: 112px;
+      width: auto;
+      display: block;
     }
 
     nav {
@@ -68,23 +73,93 @@
       color: #0073e6;
     }
 
+    /* ================= HERO ================= */
+
+    .hero {
+      position: relative;
+      background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e")
+        center/cover no-repeat;
+      color: white;
+      padding: 6rem 2rem;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 40, 80, 0.65);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      max-width: 700px;
+    }
+
+    .hero-buttons {
+      margin-top: 2rem;
+    }
+
+    .btn-primary {
+      padding: 0.8rem 1.6rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      background-color: #0073e6;
+      color: white;
+    }
+
+    /* ================= MAIN ================= */
+
     main {
-      padding: 2rem;
+      padding: 3rem 2rem;
       max-width: 1200px;
       margin: 0 auto;
     }
 
-    main h1 {
-      font-size: 2rem;
+    /* ================= SERVICES ================= */
+
+    .services h2 {
       color: #004080;
+      margin-bottom: 1rem;
     }
 
-    main p {
-      margin-top: 1rem;
-      font-size: 1rem;
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 1.8rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .service-card h3 {
+      color: #004080;
+      margin-bottom: 0.6rem;
+    }
+
+    .service-card p {
       line-height: 1.6;
       color: #333;
     }
+
+    /* ================= FOOTER ================= */
 
     footer {
       margin-top: auto;
@@ -96,37 +171,105 @@
     }
   </style>
 </head>
+
 <body>
+
+  <!-- HEADER -->
   <header>
     <div class="navbar">
-      <div class="logo">RMC</div>
+
+      <img src="Shiplogo.svg" alt="Ricketts Marine" class="logo-img" />
 
       <nav>
-        <a href=""><i class="fas fa-house"></i>Home</a>
-        <a href="services.html"><i class="fas fa-screwdriver-wrench"></i>Services</a>
+        <a href="#"><i class="fas fa-house"></i>Home</a>
         <a href="contact.html"><i class="fas fa-envelope"></i>Contact</a>
-        <a href="knowledge.html"><i class="fas fa-book-open"></i>Knowledge</a>
       </nav>
 
-     <div class="email-contact">
-  <i class="fas fa-phone"></i>
-  <span>+(47) 908 17 544</span>
-  &nbsp;|&nbsp;
-  <i class="fas fa-envelope"></i>
-  <span>ricketts.brendan@gmail.com</span>
-</div>
+      <div class="email-contact">
+        <i class="fas fa-phone"></i>
+        <span>+(47) 908 17 544</span>
+        &nbsp;|&nbsp;
+        <i class="fas fa-envelope"></i>
+        <span>ricketts.brendan@gmail.com</span>
+      </div>
     </div>
   </header>
 
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Marine Consulting for Safe, Efficient, and Sustainable Operations</h1>
+      <p>
+        Ricketts Marine engineering consultancy provides independent, technically robust
+        marine and offshore engineering support for dynamic positioning, battery and electrification systems.
+        This Includes FMEAs/FMECAs and hands on service engineering support.
+      </p>
+
+      <a href="contact.html" class="btn-primary">Submit Enquiry</a>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
   <main>
-    <h1>FMEA/FMECA</h1>
-    <p>
-      Dynamic Positioning (DP) Failure Modes and Effects Analyses (FMEAs) are essential for ensuring vessel safety and redundancy in offshore operations. At RMC, we conduct DP FMEAs in strict accordance with the <strong>DNV Recommended Practice RPD-102</strong>, which outlines the methodology and reporting standards to achieve compliance and operational assurance. To learn more, visit the official DNV page for <a href="https://www.dnv.com/services/dp-technical-guidance-and-rp-rp-d102-167649" target="_blank" style="color: #0073e6; text-decoration: underline;">DNV RPD-102</a>.
-    </p>
+
+    <section class="services">
+      <h2>Our Core Services</h2>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <h3>FMEA / FMECA</h3>
+          <p>
+            Independent Failure Modes and Effects Analyses performed in accordance with
+            recognised industry standards and class requirements.
+          </p>
+          <p>
+            <strong>Systems Analyzed include:</strong><br>
+            Dynamic Positioning (DP2 / DP3)<br>
+            Battery Conversion & Hybrid Systems<br>
+            Autonomous Navigation
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Advice / Consultancy</h3>
+          <p>
+            Practical engineering support covering vessel design, modification,
+            redundancy assessments, and operational assurance.
+          </p>
+          <p>
+            <strong>Expertise includes:</strong><br>
+            FMEA / FMECA<br>
+            Electrification<br>
+            – Generators<br>
+            – Electric Motors
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Service & Repair</h3>
+          <p>
+            Fast Response (Based in Bergen, Norway),<br>
+            Fault finding, wiring & replacement of equipment / parts,<br>
+            Log taking and shipping items for factory repair.
+          </p>
+          <p>
+            <strong>Decade of experience with:</strong><br>
+            DP Systems / Sensors<br>
+            Electric Motors / Generators<br>
+            Oil-in-Water Analyzers
+          </p>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    © 2025 RMC Marine Engineering Consultancy. All rights reserved. | RMC™
+    2025 Ricketts Marine - engineering consultancy.
   </footer>
+
 </body>
 </html>
