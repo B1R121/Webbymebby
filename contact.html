@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Ricketts Marine | Marine Engineering Consultancy</title>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
     body {
       margin: 0;
@@ -14,6 +16,8 @@
       flex-direction: column;
       min-height: 100vh;
     }
+
+    /* ================= HEADER ================= */
 
     header {
       background-color: #ffffff;
@@ -30,12 +34,16 @@
       padding: 1rem 2rem;
       max-width: 1200px;
       margin: 0 auto;
+      gap: 1rem;
     }
 
-    /* SVG LOGO */
+    /* Responsive logo:
+       - not too small on desktop
+       - not too large on mobile */
     .logo-img {
-      height: 112px;
+      height: clamp(80px, 6vw, 120px);
       width: auto;
+      max-width: 90vw;
       display: block;
     }
 
@@ -60,14 +68,30 @@
     .email-contact {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
       font-size: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .email-contact a {
+      text-decoration: none;
       color: #444;
+      white-space: nowrap;
+    }
+
+    .email-contact a:hover {
+      color: #0073e6;
     }
 
     .email-contact i {
       color: #0073e6;
     }
+
+    .divider {
+      color: #999;
+    }
+
+    /* ================= MAIN ================= */
 
     main {
       padding: 2rem;
@@ -102,6 +126,15 @@
     .contact-info p {
       line-height: 1.6;
       color: #333;
+    }
+
+    .contact-info a {
+      color: #004080;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
     }
 
     form {
@@ -146,6 +179,8 @@
       background-color: #0073e6;
     }
 
+    /* ================= FOOTER ================= */
+
     footer {
       margin-top: auto;
       background-color: #004080;
@@ -155,86 +190,105 @@
       font-size: 0.9rem;
     }
 
+    /* ================= MOBILE ================= */
+
     @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .email-contact {
+        justify-content: center;
+        font-size: 0.85rem;
+      }
+
       .contact-wrapper {
         grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="navbar">
 
-      <img src="Shiplogo.svg" alt="Ricketts Marine" class="logo-img">
+<header>
+  <div class="navbar">
 
-      <nav>
-        <a href="index.html"><i class="fas fa-house"></i>Home</a>
-        <a href="contact.html"><i class="fas fa-envelope"></i>Contact</a>
-      </nav>
+    <img src="Shiplogo.svg" alt="Ricketts Marine" class="logo-img">
 
-      <div class="email-contact">
-        <i class="fas fa-phone"></i>
-        <span>+(47) 908 17 544</span>
-        &nbsp;|&nbsp;
-        <i class="fas fa-envelope"></i>
-        <span>ricketts.brendan@gmail.com</span>
-      </div>
+    <nav>
+      <a href="index.html"><i class="fas fa-house"></i>Home</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i>Contact</a>
+    </nav>
 
+    <div class="email-contact">
+      <a href="tel:+4790817544">
+        <i class="fas fa-phone"></i> +47 908 17 544
+      </a>
+      <span class="divider">|</span>
+      <a href="mailto:ricketts.brendan@gmail.com">
+        <i class="fas fa-envelope"></i> ricketts.brendan@gmail.com
+      </a>
     </div>
-  </header>
 
-  <main>
-    <h1>Contact & Enquiries</h1>
+  </div>
+</header>
 
-    <div class="contact-wrapper">
-      <div class="contact-info">
-        <h2>Professional Enquiries</h2>
-        <p>
-          Ricketts Marine provide independent marine engineering and assurance services to vessel owners,
-          operators, and offshore contractors.
-        </p>
-        <p>
-          For enquiries related to DP FMEA/FMECA, DP trials, class compliance, technical risk studies or hands on service/maintenace work,
-          please use the enquiry form or contact us directly.
-        </p>
-        <p>
-          <strong>Telephone:</strong><br />
-          +(47) 908 17 544
-        </p>
-        <p>
-          <strong>Email:</strong><br />
-          <a href="mailto:ricketts.brendan@gmail.com">
-            ricketts.brendan@gmail.com
-          </a>
-        </p>
-      </div>
+<main>
+  <h1>Contact & Enquiries</h1>
 
-      <form action="https://formspree.io/f/xeeooppd" method="post">
-        <h2>Enquiry Form</h2>
-
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required />
-
-        <label for="company">Company</label>
-        <input type="text" id="company" name="company" />
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="subject">Subject</label>
-        <input type="text" id="subject" name="subject" />
-
-        <label for="message">Enquiry Details</label>
-        <textarea id="message" name="message" required></textarea>
-
-        <button type="submit">Submit Enquiry</button>
-      </form>
+  <div class="contact-wrapper">
+    <div class="contact-info">
+      <h2>Professional Enquiries</h2>
+      <p>
+        Ricketts Marine provide independent marine engineering and assurance services to vessel owners,
+        operators, and offshore contractors.
+      </p>
+      <p>
+        For enquiries related to DP FMEA/FMECA, DP trials, class compliance, technical risk studies or hands-on service/maintenance work,
+        please use the enquiry form or contact us directly.
+      </p>
+      <p>
+        <strong>Telephone:</strong><br>
+        <a href="tel:+4790817544">+47 908 17 544</a>
+      </p>
+      <p>
+        <strong>Email:</strong><br>
+        <a href="mailto:ricketts.brendan@gmail.com">ricketts.brendan@gmail.com</a>
+      </p>
     </div>
-  </main>
 
-  <footer>
-    2025 Ricketts Marine - engineering consultancy.
-  </footer>
+    <form action="https://formspree.io/f/xeeooppd" method="post">
+      <h2>Enquiry Form</h2>
+
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="company">Company</label>
+      <input type="text" id="company" name="company">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject">
+
+      <label for="message">Enquiry Details</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Submit Enquiry</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  2025 Ricketts Marine – engineering consultancy.
+</footer>
+
 </body>
 </html>
