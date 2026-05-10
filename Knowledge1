@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Knowledge Base – RMC Marine Engineering Consultancy</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 1rem;
+    }
+
+    .logo-img {
+      height: clamp(80px, 6vw, 120px);
+      width: auto;
+      max-width: 90vw;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    nav a:hover, nav a.active {
+      color: #0073e6;
+    }
+
+    .email-contact {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .email-contact i {
+      color: #0073e6;
+    }
+
+    /* ================= PAGE HERO ================= */
+
+    .page-hero {
+      background-color: #004080;
+      color: white;
+      padding: 3rem 2rem;
+    }
+
+    .page-hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .page-hero h1 {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-hero p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      max-width: 680px;
+      opacity: 0.9;
+    }
+
+    /* ================= MAIN ================= */
+
+    main {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex: 1;
+    }
+
+    /* ================= FILTER TAGS ================= */
+
+    .filter-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-tag {
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      border: 1.5px solid #d0d0d0;
+      color: #555;
+      background: white;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      transition: all 0.15s;
+    }
+
+    .filter-tag:hover {
+      border-color: #0073e6;
+      color: #0073e6;
+    }
+
+    .filter-tag.active {
+      background-color: #004080;
+      color: white;
+      border-color: #004080;
+    }
+
+    /* ================= SECTION LABEL ================= */
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #888;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ================= ARTICLE CARDS ================= */
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .article-card {
+      background: white;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.15s;
+    }
+
+    .article-card:hover {
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    }
+
+    .article-card.featured {
+      border-top: 3px solid #0073e6;
+    }
+
+    .article-type {
+      font-size: 0.75rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.6rem;
+    }
+
+    .type-guide   { color: #004080; }
+    .type-article { color: #0073e6; }
+    .type-faq     { color: #e67e00; }
+
+    .article-card h3 {
+      color: #004080;
+      font-size: 1rem;
+      margin: 0 0 0.6rem;
+      line-height: 1.4;
+    }
+
+    .article-card p {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.6;
+      flex: 1;
+      margin: 0 0 1rem;
+    }
+
+    .article-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+
+    .article-tag {
+      font-size: 0.78rem;
+      background: #eef4ff;
+      color: #004080;
+      padding: 3px 10px;
+      border-radius: 12px;
+    }
+
+    .read-time {
+      font-size: 0.78rem;
+      color: #888;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #0073e6;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .read-more:hover { text-decoration: underline; }
+
+    /* ================= FORUM ================= */
+
+    .forum-section {
+      background: white;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+
+    .forum-header {
+      background-color: #004080;
+      color: white;
+      padding: 1rem 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .forum-header h2 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .btn-outline-white {
+      padding: 0.4rem 1rem;
+      border: 1.5px solid white;
+      border-radius: 4px;
+      color: white;
+      background: transparent;
+      font-size: 0.85rem;
+      font-family: Arial, sans-serif;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    .forum-thread {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 1.6rem;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .forum-thread:last-child { border-bottom: none; }
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .av1 { background: #ddeeff; color: #004080; }
+    .av2 { background: #d4f0e4; color: #0f6e56; }
+    .av3 { background: #faeeda; color: #854f0b; }
+
+    .thread-body { flex: 1; }
+
+    .thread-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #004080;
+      margin-bottom: 3px;
+    }
+
+    .thread-meta {
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    .thread-replies {
+      font-size: 0.8rem;
+      color: #888;
+      flex-shrink: 0;
+      text-align: right;
+    }
+
+    .forum-footer {
+      padding: 1rem 1.6rem;
+      background: #f9f9f9;
+      border-top: 1px solid #f0f0f0;
+      text-align: center;
+    }
+
+    .forum-footer a {
+      font-size: 0.85rem;
+      color: #0073e6;
+      text-decoration: none;
+    }
+
+    .forum-footer a:hover { text-decoration: underline; }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      margin-top: auto;
+      background-color: #004080;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav { justify-content: center; }
+
+      .email-contact {
+        justify-content: center;
+        font-size: 0.85rem;
+      }
+
+      .page-hero h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="navbar">
+      <img src="Shiplogo.svg" alt="Ricketts Marine" class="logo-img" />
+      <nav>
+        <a href="index.html"><i class="fas fa-house"></i> Home</a>
+        <a href="knowledge.html" class="active"><i class="fas fa-book-open"></i> Knowledge</a>
+        <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      </nav>
+      <div class="email-contact">
+        <i class="fas fa-phone"></i>
+        <span>+(47) 908 17 544</span>
+        &nbsp;|&nbsp;
+        <i class="fas fa-envelope"></i>
+        <span>ricketts.brendan@gmail.com</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <h1>Knowledge Base</h1>
+      <p>Practical insights on DP systems, FMEA methodology, rotational machinery, and emerging marine technologies — from an engineer who has worked across all of them.</p>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- FILTER TAGS -->
+    <div class="filter-row">
+      <button class="filter-tag active">All</button>
+      <button class="filter-tag">DP systems</button>
+      <button class="filter-tag">FMEA</button>
+      <button class="filter-tag">Rotational machinery</button>
+      <button class="filter-tag">Battery &amp; hybrid</button>
+      <button class="filter-tag">Autonomous vessels</button>
+    </div>
+
+    <!-- FEATURED ARTICLES -->
+    <div class="section-label">Featured articles</div>
+    <div class="articles-grid">
+
+      <div class="article-card featured">
+        <div class="article-type type-guide"><i class="fas fa-file-alt"></i> Technical guide</div>
+        <h3>IEC 60812 vs IMCA RP-D102: which FMEA standard applies to your vessel?</h3>
+        <p>A practical comparison of the two most common frameworks used in marine FMEA, and when each is required by class.</p>
+        <div class="article-footer">
+          <span class="article-tag">FMEA</span>
+          <span class="read-time"><i class="fas fa-clock"></i> 6 min read</span>
+        </div>
+        <a href="#" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="article-card featured">
+        <div class="article-type type-article"><i class="fas fa-bolt"></i> Article</div>
+        <h3>Synchronous vs asynchronous motors: what marine engineers need to know</h3>
+        <p>The key differences between motor types, their failure modes, and why it matters for vessel system design and FMEA.</p>
+        <div class="article-footer">
+          <span class="article-tag">Rotational machinery</span>
+          <span class="read-time"><i class="fas fa-clock"></i> 5 min read</span>
+        </div>
+        <a href="#" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+    </div>
+
+    <!-- MORE ARTICLES -->
+    <div class="section-label">More articles</div>
+    <div class="articles-grid">
+
+      <div class="article-card">
+        <div class="article-type type-guide"><i class="fas fa-file-alt"></i> Technical guide</div>
+        <h3>FMEA for battery hybrid systems: key differences from DP</h3>
+        <div class="article-footer">
+          <span class="article-tag">Battery &amp; hybrid</span>
+          <span class="read-time"><i class="fas fa-clock"></i> 5 min read</span>
+        </div>
+        <a href="#" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="article-card">
+        <div class="article-type type-article"><i class="fas fa-ship"></i> Article</div>
+        <h3>Autonomous vessel FMEA: what the standards don't yet cover</h3>
+        <div class="article-footer">
+          <span class="article-tag">Autonomous vessels</span>
+          <span class="read-time"><i class="fas fa-clock"></i> 4 min read</span>
+        </div>
+        <a href="#" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="article-card">
+        <div class="article-type type-faq"><i class="fas fa-question-circle"></i> FAQ</div>
+        <h3>Common DP failure modes and how they are identified in an FMEA</h3>
+        <div class="article-footer">
+          <span class="article-tag">DP systems</span>
+          <span class="read-time"><i class="fas fa-clock"></i> 3 min read</span>
+        </div>
+        <a href="#" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+    </div>
+
+    <!-- FORUM -->
+    <div class="section-label">Community forum</div>
+    <div class="forum-section">
+      <div class="forum-header">
+        <h2><i class="fas fa-comments"></i> Discussion forum</h2>
+        <button class="btn-outline-white"><i class="fas fa-plus"></i> Start a discussion</button>
+      </div>
+
+      <div class="forum-thread">
+        <div class="avatar av1">JK</div>
+        <div class="thread-body">
+          <div class="thread-title">DP2 FMEA for PSV — does the annual trial need a full FMEA review?</div>
+          <div class="thread-meta">Asked by J. Karlsen &nbsp;·&nbsp; 2 days ago</div>
+        </div>
+        <div class="thread-replies"><i class="fas fa-reply"></i> 4 replies</div>
+      </div>
+
+      <div class="forum-thread">
+        <div class="avatar av2">MO</div>
+        <div class="thread-body">
+          <div class="thread-title">Difference between FMEA and FMECA — when does criticality analysis apply?</div>
+          <div class="thread-meta">Asked by M. Olsen &nbsp;·&nbsp; 5 days ago</div>
+        </div>
+        <div class="thread-replies"><i class="fas fa-reply"></i> 7 replies</div>
+      </div>
+
+      <div class="forum-thread">
+        <div class="avatar av3">SH</div>
+        <div class="thread-body">
+          <div class="thread-title">Battery hybrid FMEA on a wind installation vessel — any experience?</div>
+          <div class="thread-meta">Asked by S. Hansen &nbsp;·&nbsp; 1 week ago</div>
+        </div>
+        <div class="thread-replies"><i class="fas fa-reply"></i> 2 replies</div>
+      </div>
+
+      <div class="forum-footer">
+        <a href="#">View all discussions <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Ricketts Marine - engineering consultancy.
+  </footer>
+
+  <script>
+    document.querySelectorAll('.filter-tag').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-tag').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
