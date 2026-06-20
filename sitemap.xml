@@ -1,0 +1,34 @@
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://www.rickettsmarine.com/</loc>
+  </url>
+
+  <url>
+    <loc>https://www.rickettsmarine.com/index.html</loc>
+  </url>
+
+  <url>
+    <loc>https://www.rickettsmarine.com/contact.html</loc>
+  </url>
+
+  <url>
+    <loc>https://www.rickettsmarine.com/knowledge.html</loc>
+  </url>
+
+  <url>
+    <loc>https://www.rickettsmarine.com/imca-m166-rev3.html</loc>
+  </url>
+
+  <url>
+    <loc>https://www.rickettsmarine.com/imca-m190-dp-annual-trials.html</loc>
+  </url>
+
+  <url>
+    <loc>https://www.rickettsmarine.com/worst-case-failure-design-intent.html</loc>
+  </url>
+
+</urlset>
+```
