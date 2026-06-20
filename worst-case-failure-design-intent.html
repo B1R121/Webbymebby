@@ -1,0 +1,160 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Worst Case Failure Design Intent WCFDI | Ricketts Marine Consultancy</title>
+  <meta name="description" content="Explanation of Worst Case Failure Design Intent, WCFDI, DP2 and DP3 redundancy, and how WCF is verified during DP FMEA and annual trials." />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background-color: #f9f9f9; display: flex; flex-direction: column; min-height: 100vh; }
+    header { background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+    .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; max-width: 1200px; margin: 0 auto; gap: 1rem; }
+    .logo-img { height: clamp(80px, 6vw, 120px); width: auto; max-width: 90vw; display: block; }
+    nav { display: flex; gap: 1.5rem; }
+    nav a { text-decoration: none; color: #333; font-weight: 500; display: flex; align-items: center; gap: 0.4rem; }
+    nav a:hover { color: #0073e6; }
+    .email-contact { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: #444; }
+    .email-contact i { color: #0073e6; }
+    .hero { position: relative; background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover no-repeat; color: white; padding: 6rem 2rem; }
+    .hero::before { content: ""; position: absolute; inset: 0; background: rgba(0, 40, 80, 0.65); }
+    .hero-content { position: relative; max-width: 900px; margin: 0 auto; }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; line-height: 1.6; max-width: 700px; }
+    .btn-primary { padding: 0.8rem 1.6rem; border-radius: 4px; text-decoration: none; font-weight: bold; background-color: #0073e6; color: white; display: inline-block; margin-top: 1rem; }
+    main { padding: 3rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .services h2 { color: #004080; margin-bottom: 1rem; }
+    .services p { line-height: 1.7; color: #333; max-width: 900px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .service-card { background: white; padding: 1.8rem; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    .service-card h3 { color: #004080; margin-bottom: 0.6rem; }
+    .service-card p, .service-card li { line-height: 1.6; color: #333; }
+    footer { margin-top: auto; background-color: #004080; color: white; text-align: center; padding: 1rem 0; font-size: 0.9rem; }
+    @media (max-width: 768px) { .navbar { flex-direction: column; text-align: center; } nav { justify-content: center; } .email-contact { justify-content: center; font-size: 0.85rem; } }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="navbar">
+      <img src="Shiplogo.svg" alt="Ricketts Marine" class="logo-img" />
+
+      <nav>
+        <a href="index.html"><i class="fas fa-house"></i>Home</a>
+        <a href="contact.html"><i class="fas fa-envelope"></i>Contact</a>
+        <a href="knowledge.html"><i class="fas fa-book-open"></i>Knowledge</a>
+      </nav>
+
+      <div class="email-contact">
+        <i class="fas fa-phone"></i>
+        <span>+(47) 908 17 544</span>
+        &nbsp;|&nbsp;
+        <i class="fas fa-envelope"></i>
+        <span>ricketts.brendan@gmail.com</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Worst Case Failure Design Intent</h1>
+      <p>
+        Practical explanation of WCFDI, DP redundancy and how worst case failures are identified,
+        tested and verified.
+      </p>
+
+      <a href="contact.html" class="btn-primary">Submit Enquiry</a>
+    </div>
+  </section>
+
+  <main>
+    <section class="services">
+      <h2>What is Worst Case Failure Design Intent?</h2>
+
+      <p>
+        Worst Case Failure Design Intent, often shortened to WCFDI, describes the most severe
+        single failure that a dynamic positioning vessel is designed to withstand without
+        unacceptable loss of position capability.
+      </p>
+
+      <p>
+        For DP2 and DP3 vessels, understanding the WCFDI is essential because it links the vessel's
+        design, FMEA, protection philosophy, power system configuration, thruster capability and
+        operating limits.
+      </p>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <h3>Failure Identification</h3>
+          <p>
+            The first step is to identify credible single failures and determine which failure has
+            the greatest consequence for position keeping capability.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Power & Thruster Consequences</h3>
+          <p>
+            The WCF normally affects available power, thrust or control capability. This may involve
+            loss of a switchboard section, generator group, thruster group or control system element.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Open and Closed Bus Operation</h3>
+          <p>
+            The WCFDI may change depending on vessel configuration. Closed bus, open bus and
+            split-bus operation should be assessed against the actual protection and redundancy concept.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Verification by Testing</h3>
+          <p>
+            The WCFDI should be supported by practical testing where safe and appropriate. Testing
+            should confirm that the vessel response matches the FMEA assumptions.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Operational Limits</h3>
+          <p>
+            The WCFDI is closely linked to post-failure capability, environmental limits, activity
+            specific operating guidelines and the vessel's DP operating procedures.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Common WCFDI Issues</h3>
+          <ul>
+            <li>WCF not clearly stated</li>
+            <li>Different documents giving different assumptions</li>
+            <li>Modifications changing the original redundancy concept</li>
+            <li>Testing not aligned with the stated WCFDI</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p>
+        Ricketts Marine Consultancy provides independent support for WCFDI review, DP FMEA review,
+        redundancy analysis and annual DP trials preparation.
+      </p>
+
+      <a href="contact.html" class="btn-primary">Discuss WCFDI Review</a>
+    </section>
+  </main>
+
+  <footer>
+    2025 Ricketts Marine - engineering consultancy.
+  </footer>
+
+</body>
+</html>
+```

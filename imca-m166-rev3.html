@@ -1,0 +1,312 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>IMCA M166 Rev.3 DP FMEA Guidance | Ricketts Marine Consultancy</title>
+  <meta name="description" content="Practical explanation of IMCA M166 Rev.3 for DP FMEAs, redundancy, worst case failure design intent, power systems, thrusters and DP assurance." />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 1rem;
+    }
+
+    .logo-img {
+      height: clamp(80px, 6vw, 120px);
+      width: auto;
+      max-width: 90vw;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    nav a:hover {
+      color: #0073e6;
+    }
+
+    .email-contact {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .email-contact i {
+      color: #0073e6;
+    }
+
+    .hero {
+      position: relative;
+      background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e")
+        center/cover no-repeat;
+      color: white;
+      padding: 6rem 2rem;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 40, 80, 0.65);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      max-width: 700px;
+    }
+
+    .btn-primary {
+      padding: 0.8rem 1.6rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      background-color: #0073e6;
+      color: white;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
+    main {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .services h2 {
+      color: #004080;
+      margin-bottom: 1rem;
+    }
+
+    .services p {
+      line-height: 1.7;
+      color: #333;
+      max-width: 900px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 1.8rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .service-card h3 {
+      color: #004080;
+      margin-bottom: 0.6rem;
+    }
+
+    .service-card p,
+    .service-card li {
+      line-height: 1.6;
+      color: #333;
+    }
+
+    footer {
+      margin-top: auto;
+      background-color: #004080;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .email-contact {
+        justify-content: center;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="navbar">
+      <img src="Shiplogo.svg" alt="Ricketts Marine" class="logo-img" />
+
+      <nav>
+        <a href="index.html"><i class="fas fa-house"></i>Home</a>
+        <a href="contact.html"><i class="fas fa-envelope"></i>Contact</a>
+        <a href="knowledge.html"><i class="fas fa-book-open"></i>Knowledge</a>
+      </nav>
+
+      <div class="email-contact">
+        <i class="fas fa-phone"></i>
+        <span>+(47) 908 17 544</span>
+        &nbsp;|&nbsp;
+        <i class="fas fa-envelope"></i>
+        <span>ricketts.brendan@gmail.com</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>IMCA M166 Rev.3 DP FMEA Guidance</h1>
+      <p>
+        Practical support for DP FMEAs, redundancy assessment, failure testing and verification
+        in accordance with recognised marine and offshore industry guidance.
+      </p>
+
+      <a href="contact.html" class="btn-primary">Submit Enquiry</a>
+    </div>
+  </section>
+
+  <main>
+    <section class="services">
+      <h2>IMCA M166 Rev.3 Explained</h2>
+
+      <p>
+        IMCA M166 Rev.3 provides guidance for carrying out Failure Modes and Effects Analysis
+        on dynamic positioning systems. For vessel owners, operators and project teams, the
+        purpose is not simply to produce a document, but to understand whether the DP system
+        can tolerate defined failures without unacceptable loss of position capability.
+      </p>
+
+      <p>
+        A useful DP FMEA should identify the system boundaries, operating modes, redundancy
+        concept, worst case failure design intent and the practical tests required to prove that
+        the vessel behaves as expected.
+      </p>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <h3>Redundancy Verification</h3>
+          <p>
+            Verification that a single failure does not result in unacceptable loss of position
+            capability. This includes power generation, distribution, thrusters, control systems,
+            references, sensors and supporting auxiliaries.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Worst Case Failure</h3>
+          <p>
+            Identification and testing of the most severe single failure the DP system is designed
+            to withstand. This is central to confirming the vessel's DP redundancy concept.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Power System Response</h3>
+          <p>
+            Assessment of generator, switchboard, protection, PMS and load sharing behaviour
+            during fault conditions, including the effect on available thrust.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Thruster & Control Behaviour</h3>
+          <p>
+            Confirmation that thruster allocation, control logic and system reconfiguration behave
+            correctly during simulated failures and degraded operating conditions.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Alarm & Operator Feedback</h3>
+          <p>
+            Verification that alarms, indications and operator information accurately reflect
+            system status during abnormal or degraded conditions.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Common FMEA Findings</h3>
+          <ul>
+            <li>System modifications not reflected in documentation</li>
+            <li>Incorrect or outdated redundancy assumptions</li>
+            <li>Unexpected interaction between DP and power systems</li>
+            <li>Incomplete understanding of failure consequences</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p>
+        Ricketts Marine Consultancy provides independent DP FMEA and assurance support from
+        Bergen, Norway, including document review, failure mode assessment, annual trial support
+        and practical engineering input.
+      </p>
+
+      <a href="contact.html" class="btn-primary">Discuss DP FMEA Support</a>
+    </section>
+  </main>
+
+  <footer>
+    2025 Ricketts Marine - engineering consultancy.
+  </footer>
+
+</body>
+</html>
+```
