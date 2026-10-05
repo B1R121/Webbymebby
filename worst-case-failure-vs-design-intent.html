@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Worst Case Failure vs Worst Case Failure Design Intent | Ricketts Marine Consultancy</title>
+<meta name="description" content="A practical DP2 example showing the difference between Worst Case Failure and Worst Case Failure Design Intent, and how a cross-connection can defeat redundancy." />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<style>
+body { margin: 0; font-family: Arial, sans-serif; background-color: #f9f9f9; display: flex; flex-direction: column; min-height: 100vh; }
+header { background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; max-width: 1200px; margin: 0 auto; gap: 1rem; }
+.logo-img { height: clamp(80px, 6vw, 120px); width: auto; max-width: 90vw; display: block; }
+nav { display: flex; gap: 1.5rem; }
+nav a { text-decoration: none; color: #333; font-weight: 500; display: flex; align-items: center; gap: 0.4rem; }
+nav a:hover { color: #0073e6; }
+.email-contact { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: #444; }
+.email-contact i { color: #0073e6; }
+.hero { position: relative; background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover no-repeat; color: white; padding: 6rem 2rem; }
+.hero::before { content: ""; position: absolute; inset: 0; background: rgba(0, 40, 80, 0.65); }
+.hero-content { position: relative; max-width: 900px; margin: 0 auto; }
+.hero h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+.hero p { font-size: 1.2rem; line-height: 1.6; max-width: 760px; }
+.btn-primary { padding: 0.8rem 1.6rem; border-radius: 4px; text-decoration: none; font-weight: bold; background-color: #0073e6; color: white; display: inline-block; margin-top: 1rem; }
+main { padding: 3rem 2rem; max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; }
+.article { max-width: 900px; }
+.article h2 { color: #004080; margin-top: 2.3rem; margin-bottom: 1rem; }
+.article p, .article li { line-height: 1.7; color: #333; }
+.article ul { padding-left: 1.4rem; }
+.figure-card { background: white; padding: 1.25rem; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin: 1.8rem 0 2.2rem; }
+.figure-card img { width: 100%; height: auto; display: block; border-radius: 3px; }
+.figure-card figcaption { color: #555; font-size: 0.92rem; line-height: 1.5; margin-top: 0.9rem; }
+.sequence { background: white; border-left: 4px solid #0073e6; padding: 1rem 1.2rem; margin: 1.5rem 0; line-height: 1.7; color: #333; }
+.key-point { background: #eef6ff; padding: 1.3rem 1.4rem; border-radius: 6px; margin: 2rem 0; }
+.key-point strong { color: #004080; }
+footer { margin-top: auto; background-color: #004080; color: white; text-align: center; padding: 1rem 0; font-size: 0.9rem; }
+@media (max-width: 768px) {
+  .navbar { flex-direction: column; text-align: center; }
+  nav { justify-content: center; }
+  .email-contact { justify-content: center; font-size: 0.85rem; flex-wrap: wrap; }
+  .hero { padding: 4rem 1.4rem; }
+  .hero h1 { font-size: 2.1rem; }
+  main { padding: 2rem 1.2rem; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="navbar">
+    <img src="https://www.rickettsmarine.com/Shiplogo.svg" alt="Ricketts Marine" class="logo-img" />
+    <nav>
+      <a href="https://www.rickettsmarine.com/index.html"><i class="fas fa-house"></i>Home</a>
+      <a href="https://www.rickettsmarine.com/contact.html"><i class="fas fa-envelope"></i>Contact</a>
+      <a href="https://www.rickettsmarine.com/knowledge.html"><i class="fas fa-book-open"></i>Knowledge</a>
+    </nav>
+    <div class="email-contact">
+      <i class="fas fa-phone"></i><span>+(47) 908 17 544</span>
+      <span>&nbsp;|&nbsp;</span>
+      <i class="fas fa-envelope"></i><span>ricketts.brendan@gmail.com</span>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Worst Case Failure vs. Worst Case Failure Design Intent</h1>
+    <p>A practical DP2 example showing how a cross-connection between redundancy groups can cause the actual failure consequence to exceed the intended Worst Case Failure Design Intent.</p>
+    <a href="https://www.rickettsmarine.com/contact.html" class="btn-primary">Submit Enquiry</a>
+  </div>
+</section>
+
+<main>
+  <article class="article">
+    <p>A fundamental principle of a DP2 vessel is that a single failure should not result in the loss of position. To achieve this, the vessel's power, propulsion and control systems are divided into redundant groups so that the loss of one group leaves sufficient capability in the remaining group.</p>
+
+    <p>However, there can be an important difference between the <strong>Worst Case Failure (WCF)</strong> and the <strong>Worst Case Failure Design Intent (WCFDI)</strong>.</p>
+
+    <p>The simplified example below demonstrates how a relatively straightforward cross-connection can defeat the intended redundancy concept.</p>
+
+    <h2>The Design Intent</h2>
+    <p>The vessel is divided into two redundancy groups:</p>
+    <ul>
+      <li><strong>Port redundancy group — shown in red</strong></li>
+      <li><strong>Starboard redundancy group — shown in green</strong></li>
+    </ul>
+    <p>Each redundancy group has its own generator, switchboard, generator cooling pumps and thrusters.</p>
+    <p>The design intent is straightforward. A failure of the Port switchboard should result in the loss of the Port redundancy group only. DG1 and the Port-associated thrusters would be lost, while DG2 and the Starboard thrusters would remain available.</p>
+    <p>The vessel should therefore retain power and propulsion following the defined single failure.</p>
+
+    <h2>The Cross-Connection</h2>
+    <p>Now consider a simple design error.</p>
+    <p>DG2 belongs to the Starboard redundancy group. Its main and standby cooling pumps also belong to the Starboard redundancy group and are therefore shown in green.</p>
+    <p>However, both DG2 cooling pumps have accidentally been electrically supplied from the <strong>Port switchboard</strong>, shown by the red supply connections in the diagram below.</p>
+
+    <figure class="figure-card">
+      <img src="dp2-cross-connection.png" alt="Simplified DP2 redundancy diagram showing DG2 cooling pumps in the Starboard redundancy group supplied from the Port switchboard" />
+      <figcaption><strong>Figure 1 — Simplified DP2 redundancy concept showing the cross-connection.</strong> The DG2 cooling pumps belong to the Starboard redundancy group (green) but are electrically supplied from the Port switchboard (red).</figcaption>
+    </figure>
+
+    <p>The cooling pumps therefore belong to the Starboard redundancy group but receive their electrical power from the opposite redundancy group.</p>
+    <p>This cross-connection defeats the intended segregation between the two systems and creates a dependency of the Starboard redundancy group on the Port electrical system.</p>
+
+    <h2>What Happens When the Port Switchboard Fails?</h2>
+    <p>The animation below follows the resulting failure sequence.</p>
+
+    <figure class="figure-card">
+      <img src="dp2-failure-sequence.gif" alt="Animated DP2 failure sequence showing a Port switchboard failure propagating to a full blackout" />
+      <figcaption><strong>Figure 2 — Failure propagation following loss of the Port switchboard.</strong></figcaption>
+    </figure>
+
+    <p>Initially, the failure appears to behave as expected. Loss of the Port switchboard causes the loss of DG1, its associated auxiliaries and the Port thrusters.</p>
+    <p>But the failure does not stop at the redundancy-group boundary.</p>
+    <p>Because both DG2 cooling pumps are also supplied from the Port switchboard, they lose power at the same time.</p>
+    <p>DG2 may initially continue to operate, but without its required cooling it cannot remain available indefinitely. Loss of cooling therefore results in the eventual shutdown or loss of DG2.</p>
+    <p>With DG2 no longer available, the Starboard electrical system subsequently loses its generating source and the remaining Starboard thrusters are lost.</p>
+    <p>The result is a <strong>full blackout</strong>.</p>
+
+    <div class="sequence"><strong>Port switchboard failure → Port redundancy group lost → DG2 cooling pumps lost → DG2 lost → Starboard power and propulsion lost → full blackout.</strong></div>
+
+    <h2>Worst Case Failure vs. Worst Case Failure Design Intent</h2>
+    <p>This example demonstrates an important distinction.</p>
+    <p>The <strong>Worst Case Failure Design Intent</strong> describes the failure that the redundancy concept is intended to withstand. In this example, that is the loss of one switchboard and its associated redundancy group while the opposite redundancy group remains available.</p>
+    <p>The <strong>actual Worst Case Failure</strong>, however, must be determined from the real system architecture and its dependencies.</p>
+    <p>Because of the cross-connection, loss of the Port switchboard is no longer contained within the Port redundancy group. It propagates into equipment belonging to the Starboard redundancy group and ultimately results in the loss of both groups.</p>
+
+    <h2>Why This Matters in a DP FMEA</h2>
+    <p>A DP FMEA cannot simply confirm that equipment has been assigned to separate redundancy groups.</p>
+    <p>The analysis must establish the <strong>actual dependencies and supply paths</strong> of that equipment.</p>
+    <p>A component may belong to the Starboard redundancy group, but if an auxiliary essential to its continued operation is supplied from the Port system, the required independence between the redundancy groups has not been achieved.</p>
+    <p>The same principle can apply to many supporting systems, including cooling, lubrication, fuel supply, ventilation, control power, UPS supplies, automation, communications, hydraulics and other common or supporting services.</p>
+    <p>This is one of the fundamental purposes of DP FMEA analysis and proving trials: to determine whether the vessel's <strong>actual system behaviour under failure matches its stated Worst Case Failure Design Intent</strong>.</p>
+
+    <div class="key-point"><strong>Redundancy is not established simply by assigning equipment to separate redundancy groups.</strong> It must be demonstrated through the complete chain of dependencies required to keep each redundancy group operational.</div>
+
+    <a href="https://www.rickettsmarine.com/contact.html" class="btn-primary">Discuss DP FMEA Support</a>
+  </article>
+</main>
+
+<footer>2025 Ricketts Marine - engineering consultancy.</footer>
+</body>
+</html>
